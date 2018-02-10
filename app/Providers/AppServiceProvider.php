@@ -11,6 +11,7 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
+
     public function boot()
     {
         //
@@ -26,3 +27,4 @@ class AppServiceProvider extends ServiceProvider
         //
     }
 }
+

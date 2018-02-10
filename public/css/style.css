@@ -1,0 +1,152 @@
+
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden;
+    height: 100%;
+	width: 100%;
+	color: #ffffcc;
+	background: url(../img/wp/bg1.png) repeat-x, rgb(19,2,28);
+}
+
+
+/*----------Page Display----------*/
+
+.maincontainer {
+	width: calc(100% - 200px);
+	width: -webkit-calc(100% - 200px);
+	width: -o-calc(100% - 200px);
+	height: 100%;
+	background-image: url(../img/wp/filler.png);
+	background-repeat: repeat;
+	box-shadow: 0 1px 2px 2px black;
+	position: absolute;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+.secondarycontainer {
+	width: calc(100% - 264px);
+	width: -webkit-calc(100% - 264px);
+	width: -o-calc(100% - 264px);
+	height: 100%;
+	border: 16px solid transparent;
+    padding: 16px;
+    -webkit-border-image: url(../img/borders/BorderWood.png) 16 round; /* Safari 3.1-5 */
+    -o-border-image: url(../img/borders/BorderWood.png) 16 round; /* Opera 11-12.1 */
+    border-image: url(../img/borders/BorderWood.png) 16 round;
+	background-image: url(../img/bgs/BgWood.png);
+	background-repeat: repeat;
+	box-shadow: 0 2px 2px 2px black;
+	position: relative;
+	top: 0;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+.flexcontainer {
+	display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 5px;
+}
+
+
+/*----------Elements----------*/
+#welcome_popup {
+	background-color: sienna;
+	width: 20%;
+	position: fixed;
+	left: 50%;
+	margin-left: -10%;
+	top: 40%;
+	text-align: center;
+}
+.button {
+	display: inline-block;
+	border: 1px solid black;
+}
+
+.flexbox {
+	width: 96px;
+	height: 64px;
+    background-color: sienna;
+}
+
+.brickncobble {
+	border: 16px solid transparent;
+    padding: 16px;
+	-webkit-border-image: url(../img/borders/BorderBrick.png) 16 round; /* Safari 3.1-5 */
+    -o-border-image: url(../img/borders/BorderBrick.png) 16 round; /* Opera 11-12.1 */
+    border-image: url(../img/borders/BorderBrick.png) 16 round;
+    background-image: url(../img/bgs/BgCobble.png);
+    background-repeat: repeat;
+}
+
+
+/*----------Formatting----------*/
+
+@font-face {
+font-family: "Almendra";
+src: url("../img/fonts/Almendra-Regular.otf");
+src:
+url("../img/fonts/Almendra-Regular.otf") format("opentype");
+}
+@font-face {
+font-family: "Courier Prime";
+src: url("../img/fonts/Courier Prime.ttf");
+src:
+url("../img/fonts/Courier Prime.ttf") format("ttf");
+}
+
+a {
+	text-decoration: none;
+}
+
+h1 {
+	font-size: 300%;
+	font-family: "Almendra", "Trattatello", "Courier Prime", "Times New Roman", Times, serif;
+	color: #ffffcc;
+	font-variant: small-caps;
+	text-shadow: 1px 1px 5px black;
+}
+
+.outlined {
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;  
+}
+
+
+/*--------Tabs system--------*/
+
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
+.tab button:hover {
+    background-color: #ddd;
+}
+
+.tab button.active {
+    background-color: #ccc;
+}
+
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+} 
