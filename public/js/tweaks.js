@@ -34,3 +34,29 @@ function openTab(evt, tabName) {
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
 } 
+
+/* Character Creation Stats Distributer */
+$(document).ready(function(){
+    
+    $(".statdistrib").on("click", function() {
+
+      var $button = $(this);
+      var oldValue = $button.parent().find(".value").val();
+      console.log(oldValue);
+
+      if ($button.text() == "+") {
+          var newVal = parseFloat(oldValue) + 1;
+        } else {
+       // Don't allow decrementing below zero
+        if (oldValue > 0) {
+          var newVal = parseFloat(oldValue) - 1;
+        } else {
+          newVal = 0;
+        }
+      }
+
+      $button.parent().find(".value").val(newVal);
+      console.log(newVal);
+
+    });
+});

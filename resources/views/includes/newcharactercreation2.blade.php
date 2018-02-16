@@ -679,7 +679,7 @@ switch ($user_race) {
 
 	<?php 
 	if ($charastat->dicerolls <=3 || $charastat->dicerolls ==0) {
-		$totalMainStatsCapital = random_int(45 , 55); $dicerolls++; 
+		$totalMainStatsCapital = random_int(42 , 52); $dicerolls++; 
 		echo 'Points principaux:<h1>' . $totalMainStatsCapital . '</h1>.<br /><br />';
 
 		$totalSecStatsCapital = random_int(40, 60); 
@@ -690,7 +690,7 @@ switch ($user_race) {
 		$charastat->totalsecstatscapital = $totalSecStatsCapital;
 		$charastat->save();
 
-		echo '<p> Un résultat de 45 est considéré comme moyen, 50 est considéré comme plutot bon.<br ?><br />Ce résultat ne vous plait pas et vous souhaitez relancer les dés? vous pouvez le faire en rafraichissant la page. <br /> ATTENTION: <font color="red"><strong>' . (4 - $charastat->dicerolls) . '</strong></font> lancers restants.</p>';
+		echo '<p> Un résultat de 40 est considéré comme mauvais, 45 bon, 50 excellent.<br ?><br />Ce résultat ne vous plait pas et vous souhaitez relancer les dés? vous pouvez le faire en rafraichissant la page. <br /> ATTENTION: <font color="red"><strong>' . (4 - $charastat->dicerolls) . '</strong></font> lancers restants.</p>';
 	} else {
 		echo 'Points principaux:<h1>' . $totalMainStatsCapital . '</h1>.<br /><br />';
 		echo 'Points principaux:<h1>' . $totalSecStatsCapital . '</h1>.<br /><br />';
@@ -698,6 +698,8 @@ switch ($user_race) {
 		echo 'Désolé, vous ne pouvez plus relancer les dés.';
 	}
 	?>
+
+	<a href="{{ route('create3') }}" class="button">Continuer</a>
 
 </div>
 
