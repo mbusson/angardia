@@ -3,9 +3,8 @@
 	<div class="maincontainer">
 		<div class="secondarycontainer">
             <!-- Authentication Links -->
-            @include('includes.auth.auth')
             @if (Auth::check())
-            	@include('includes.creation.newcharactercreation')
+            	@include('includes.creation.newcharactercreation6')
             @endif
 		</div>
 	</div>

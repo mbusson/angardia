@@ -1,12 +1,11 @@
-@include('includes.header')
+@include('includes.element.header')
 <body>
 	<div class="maincontainer">
 		<div class="secondarycontainer">
             <!-- Authentication Links -->
             @if (Auth::check())
-            	@include('includes.newcharactercreation3')
+            	@include('includes.creation.newcharactercreation3')
             @endif
 		</div>
 	</div>
-</body>
-@include('includes.footer')
+@include('includes.element.footer')
