@@ -33,4 +33,20 @@ class HomeController extends Controller
     {
         return view('create2');
     }
+    public function create3()
+    {
+        return view('create3');
+    }
+    public function create4()
+    {
+        return view('create4');
+    }
+    public function create5()
+    {
+        return view('create5');
+    }
+    public function create6()
+    {
+        return view('create6');
+    }
 }
