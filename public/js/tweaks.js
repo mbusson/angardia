@@ -1,3 +1,10 @@
+/* AJAX setup */
+$.ajaxSetup({
+  headers: {
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  }
+});
+
 /* Box-resizing to make it a 16px multiple */
 $(function() {
     $div = $('.secondarycontainer');
@@ -16,34 +23,12 @@ $(document).ready(function() {
 	    },5000);
 });
 
-
-/* Tabs system */
-function openTab(evt, tabName) {
-    var i, tabcontent, tablinks;
-
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active";
-} 
-
 /* Character Creation Stats Distributer */
-$(document).ready(function(){
-    
+$(document).ready(function(){  
     $(".statdistrib").on("click", function() {
-
       var $button = $(this);
       var oldValue = $button.parent().find(".value").val();
-      console.log(oldValue);
-
+      var sum = 0;
       if ($button.text() == "+") {
           var newVal = parseFloat(oldValue) + 1;
         } else {
@@ -54,9 +39,35 @@ $(document).ready(function(){
           newVal = 0;
         }
       }
-
       $button.parent().find(".value").val(newVal);
-      console.log(newVal);
+    });
+});
 
+/* Character Creation Stats Comparator */
+$(document).ready(function(){  
+    // Display sum of inputs every time a button is clicked
+    $(".statdistrib").on("click", function() {
+        var mainsum = 0;
+        $(".mainstats").each(function(){
+            mainsum += +$(this).val();
+        });
+        var mainsumdisplay = '<h3>Votre total: ' + mainsum + '</h3>';
+        $("#totalpoints").html(mainsumdisplay);
+        var secsum = 0;
+        $(".secstats").each(function(){
+            secsum += +$(this).val();
+        });
+        var secsumdisplay = '<h3>Votre total: ' + secsum + '</h3>';
+        $("#sectotalpoints").html(secsumdisplay);
+        // Check if sum == total
+        var totalmainvalue = $("#maintotal").html();
+        var totalsecvalue = $("#sectotal").html();
+        if (totalmainvalue == mainsum && totalsecvalue == secsum) {
+            console.log("C'est égal!");
+            $("#submissiondiv").html('<input type="submit" value="Valider"/>');
+        } else {
+            console.log("Nope!");
+            $("#submissiondiv").html('Les valeurs ne correspondent pas à vos lancers de dés.');
+        }
     });
 });
