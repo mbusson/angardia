@@ -1,3 +1,3 @@
-		<a href="{{ route('logout') }}">Log Out</a>
+		</div>
 	</body>
 </html>

@@ -1,13 +1,23 @@
 @include('includes.element.header')
-<body>
+@include('includes.element.menu')
+@include('includes.element.sidebar')
+<?php
+	if (Auth::check()) {
+		$userid = Auth::user()->id; 
+	    $stat = \App\Character::where('owner', $userid)->first();
+	}
+?>
 	<div class="maincontainer">
 		<div class="secondarycontainer">
-            <!-- Authentication Links -->
-            @include('includes.auth.auth')
-            @if (Auth::check())
-            	@include('includes.creation.charactercreation')
-            	@include('includes.playview')
-            @endif
+	      <!-- Authentication Links -->
+	      @if (Auth::check() && $stat->validated == "y")
+	      	@include('characreation.creation.preview')
+	      @elseif (Auth::check())
+	      	@include('characreation.creation.charactercreation')
+	      @else
+	      	@include('auth.login')
+	      @endif
 		</div>
 	</div>
+@include('includes.element.menu')
 @include('includes.element.footer')
