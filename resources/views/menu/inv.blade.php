@@ -10,6 +10,19 @@
     } catch (ErrorException $e) {
         // do nothing if doesn't exist
     }
+    if (!function_exists('menuItemDisplay')) {
+      	function menuItemDisplay($statname) {
+	        $userid = Auth::user()->id;
+	        $stat = \App\Character::where('owner', $userid)->first();
+          	if ( $stat ) {
+				if ($stat->sidebar == 1) {
+					if ($statname == "avatar_url") {
+					echo '<img src="./img/avatars/' . $stat->$statname . '.jpg" width="128" height="128" class="tableframe borderImg">';  
+					}
+				}
+			}
+      	}
+    }
     if (!function_exists('equipItemDisplay')) {
       function equipItemDisplay($itmID, $equipped) {
         $itm = \App\Item::where('id', $itmID)->first();
@@ -182,25 +195,6 @@
         }
       }
     }
-    if (!function_exists('equipItemDisplay')) {
-      function menuItemDisplay($statname) {
-        $userid = Auth::user()->id;
-        $stat = \App\Character::where('owner', $userid)->first();
-          if ( $stat ) {
-          if ($stat->sidebar == 1) {
-            if ($statname == "avatar_url") {
-              echo '<img src="./img/avatars/' . $stat->$statname . '.jpg" width="128" height="128" class="tableframe borderImg">';  
-            }
-            if ($statname == "rank") {
-              return $stat->$statname;
-            }
-            else {
-              echo $stat->$statname; 
-            }
-          }
-        }
-      }
-    }
   ?>
   <div class='crowned' style="display:block;">
     <h2>Inventaire</h2>
@@ -340,7 +334,7 @@
         </div>
         <div id="avatar" class="avatar">
           <?php 
-          menuItemDisplay("avatar_url", "img"); 
+          menuItemDisplay("avatar_url"); 
           ?>
         </div>
       </div>
